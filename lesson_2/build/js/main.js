@@ -25,7 +25,6 @@ const exampleObje = {
 exampleObje.prop1 = 'john';
 let evh = {
     name: 'edi',
-    active: false,
     albums: [192, 412, 'dsf1']
 };
 let jp = {
@@ -33,4 +32,20 @@ let jp = {
     active: true,
     albums: ['I', 'II', 'IV']
 };
-evh = jp;
+//jak w obiektcie zmienna jest opcjonalna to zmiany na niej też muszą być opcjonalne 
+const greetGitara = (gitaryList) => {
+    if (gitaryList.name) {
+        return `hello ${gitaryList.name.toUpperCase()}`;
+    }
+};
+console.log(greetGitara(jp));
+//enums - nie ma tego w javascripcie ale jest tworzone na zywo w typescripcie 
+var Grade;
+(function (Grade) {
+    Grade[Grade["A"] = 5] = "A";
+    Grade[Grade["B"] = 6] = "B";
+    Grade[Grade["C"] = 7] = "C";
+    Grade[Grade["D"] = 8] = "D";
+    Grade[Grade["E"] = 9] = "E";
+})(Grade || (Grade = {}));
+console.log(Grade.C);

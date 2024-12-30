@@ -38,6 +38,11 @@ const exampleObje = {
 exampleObje.prop1 = 'john'
 //DODANIE ? zmienia na niewymagane i nowe obiekty nie muszą posiadać tego 
 type GitaryList = {
+    name?: string,
+    active?: boolean,
+    albums: (string | number)[]
+}
+interface GitaryList2 {
     name: string,
     active?: boolean,
     albums: (string | number)[]
@@ -45,7 +50,6 @@ type GitaryList = {
 
 let evh: GitaryList = {
     name: 'edi',
-    active: false,
     albums: [192,412,'dsf1']
 }
 
@@ -54,5 +58,23 @@ let jp: GitaryList = {
     active: true,
     albums: ['I','II','IV']
 }
+//jak w obiektcie zmienna jest opcjonalna to zmiany na niej też muszą być opcjonalne 
+const greetGitara = (gitaryList : GitaryList) => {
+    if(gitaryList.name){
+        return `hello ${gitaryList.name.toUpperCase()}`
+    }
+}
 
-evh = jp
+console.log(greetGitara(jp))
+
+//enums - nie ma tego w javascripcie ale jest tworzone na zywo w typescripcie 
+
+enum Grade{
+    A = 5,
+    B,
+    C,
+    D,
+    E,
+}
+
+console.log(Grade.C)
